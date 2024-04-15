@@ -1,4 +1,4 @@
-# Stage 1: Build Go binary
+# Stage 1
 FROM golang:1.17 AS builder
 
 # Set necessary environment variables
@@ -20,13 +20,12 @@ COPY . .
 # Build the Go binary
 RUN CGO_ENABLED=0 GOOS=linux go build -o $APP_NAME .
 
-# Stage 2: Create a minimal image
+# Stage 2 
 FROM alpine:latest AS Final
 
 # Set necessary environment variables
 ARG APP_NAME=myapp
 ARG APP_PATH=/usr/local/bin/
-ENV PORT = 8080
 # Set the current working directory inside the container
 WORKDIR $APP_PATH
 
