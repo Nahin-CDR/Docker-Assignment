@@ -21,7 +21,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o $APP_NAME .
 
 # Stage 2: Create a minimal image
-FROM alpine:latest as Final
+FROM alpine:latest AS Final
 
 # Set necessary environment variables
 ARG APP_NAME=myapp
