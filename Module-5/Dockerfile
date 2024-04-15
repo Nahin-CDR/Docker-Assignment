@@ -34,9 +34,9 @@ WORKDIR $APP_PATH
 COPY --from=builder /go/src/app/$APP_NAME .
 
 
-# Expose the port on which the Go application will run (optional)
+# Expose the port on which the Go application will run 
 EXPOSE 8080
-# Define environment variable for port (optional)
+# Define environment variable for port 
 ENV PORT=8080
 # Set the command to run the Go binary
 CMD ["./myapp"]
